@@ -15,8 +15,9 @@ env:
   # - distro: debian8
 
 before_install:
-  - docker run -d --name lrk. -e POSTGRES_PASSWORD=postgres -d postgres
+  - docker run -d --name lrk.ansible_role_flyway.db -e POSTGRES_PASSWORD=postgres -d postgres
   - docker ps -a
+  - docker inspect lrk.ansible_role_flyway.db
 
 script:
   # Download test shim.
