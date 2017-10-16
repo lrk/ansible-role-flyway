@@ -1,0 +1,76 @@
+{% if ( flyway_url is defined ) and ( flyway_url != None) %}flyway.url={{ flyway_url }}{% endif %}
+{% if ( flyway_driver is defined ) and ( flyway_driver != None) %}flyway.driver={{ flyway_driver }}{% endif %}
+{% if ( flyway_user is defined ) and ( flyway_user != None) %}flyway.user={{ flyway_user }}{% endif %}
+{% if ( flyway_password is defined ) and ( flyway_password != None) %}flyway.password={{ flyway_password }}{% endif %}
+
+{% if ( flyway_schemas is defined ) and ( flyway_schemas ) %}
+flyway.schemas={% for schema in flyway_schemas %}schema{% if not loop.last %},{% endif %}{% endfor %}
+{% endif %}
+
+{% if ( flyway_table is defined ) and ( flyway_table != None) %}flyway.table={{ flyway_table | default('schema_version') }}{% endif %}
+
+{% if ( flyway_locations is defined ) and ( flyway_schemas ) %}
+flyway.locations={% for location in flyway_locations %}location{% if not loop.last %},{% endif %}{% endfor %}
+{% endif %}
+
+{% if ( flyway_resolvers is defined ) and ( flyway_schemas ) %}
+flyway.resolvers={% for resolver in flyway_resolvers %}resolver{% if not loop.last %},{% endif %}{% endfor %}
+{% endif %}
+
+flyway.skipDefaultResolvers={{ flyway_skip_default_resolvers | default(False) | lower }}
+
+{% if ( flyway_jar_dirs is defined ) and ( flyway_schemas ) %}
+flyway.jarDirs={% for dir in flyway_jar_dirs %}dir{% if not loop.last %},{% endif %}{% endfor %}
+{% endif %}
+
+flyway.sqlMigrationPrefix={{ flyway_sql_migration_prefix | default('V') }}
+
+flyway.repeatableSqlMigrationPrefix={{ flyway_repeatable_sql_migration_prefix | default('R') }}
+
+flyway.sqlMigrationSeparator={{ flyway_sql_migration_separator | default('__') }}
+
+flyway.sqlMigrationSuffix={{ flyway_sql_migration_suffix | default('.sql') }}
+
+flyway.encoding={{ flyway_encoding | default('UTF-8') }}
+
+flyway.placeholderReplacement={{ flyway_placeholder_replacement | default(True) | lower }}
+
+{% if ( flyway_placeholders_user is defined ) and ( flyway_placeholders_user != None) %}flyway.placeholders.user={{ flyway_placeholders_user }}{% endif %}
+
+{% if ( flyway_placeholders_my_other_placeholder is defined ) and ( flyway_placeholders_my_other_placeholder != None) %}flyway.placeholders.my_other_placeholder={{ flyway_placeholders_my_other_placeholder }}{% endif %}
+
+flyway.placeholderPrefix={{ flyway_placeholder_prefix | default('${') }}
+
+flyway.placeholderSuffix={{ flyway_placeholder_suffix | default('}') }}
+
+{% if ( flyway_target is defined ) and ( flyway_target != None) %}flyway.target={{ flyway_target }}{% endif %}
+
+flyway.validateOnMigrate={{ flyway_validate_on_migrate | default(True) | lower }}
+
+flyway.cleanOnValidationError={{ flyway_clean_on_validation_error | default(False) | lower }}
+
+flyway.cleanDisabled={{ flyway_clean_disabled | default(False) | lower }}
+
+flyway.baselineVersion={{ flyway_baseline_version | default(1) }}
+
+{% if ( flyway_baseline_description is defined ) and ( flyway_baseline_description != None) %}flyway.baselineDescription={{ flyway_baseline_description }}{% endif %}
+
+flyway.baselineOnMigrate={{ flyway_baseline_on_migrate | default(False) | lower }}
+
+flyway.outOfOrder={{ flyway_out_of_order | default(False) | lower }}
+
+{%if ( flyway_callbacks is defined ) and ( flyway_schemas ) %}
+flyway.callbacks={% for callback in flyway_callbacks %}callback{% if not loop.last %},{% endif %}{% endfor %}
+{% endif %}
+
+flyway.skipDefaultCallbacks={{ flyway_skip_default_callbacks | default(False) | lower }}
+
+flyway.ignoreMissingMigrations={{ flyway_ignore_missing_migrations | default(False) | lower }}
+
+flyway.ignoreFutureMigrations={{ flyway_ignore_future_migrations | default(False) | lower }}
+
+flyway.mixed={{ flyway_mixed | default(False) | lower }}
+
+flyway.group={{ flyway_group | default(False) | lower }}
+
+{% if ( flyway_installed_by is defined ) and ( flyway_installed_by != None) %}flyway.installedBy={{ flyway_installed_by }}{% endif %}

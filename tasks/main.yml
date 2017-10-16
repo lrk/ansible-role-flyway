@@ -1,0 +1,48 @@
+---
+# tasks file for ansible-role-flyway
+- name: "Ensure Flyway install path exists"
+  file:
+    path: "{{ flyway_install_root }}"
+    state: directory
+    mode: "u=rwX,go=rX"
+
+- name: "Check if Flyway is already installed"
+  stat:
+    path: "{{ __flyway_core_jar }}"
+  register: __flyway_core_jar_stat
+
+- block:
+    - name: "Download Flyway archive"
+      get_url:
+        url: "{{ __flyway_url }}"
+        dest: "{{ flyway_install_root }}/tmp_flyway.tar.gz"
+
+    - name: "Extract Flyway archive"
+      unarchive:
+        src: "{{ flyway_install_root }}/tmp_flyway.tar.gz"
+        dest: "{{ flyway_install_root }}"
+        remote_src: yes
+
+    - name: "Remove Flyway archive"
+      file:
+        path: "{{ flyway_install_root }}/tmp_flyway.tar.gz"
+        state: absent
+
+  when: __flyway_core_jar_stat.stat.exists == False
+
+- name: "Ensure Flyway script is executable"
+  file:
+    path: "{{ __flyway_script }}"
+    mode: "ugo+x"
+
+- name: "Ensure Flyway symblink exist"
+  file:
+    src: "{{ __flyway_script }}"
+    dest: "{{ __flyway_symblink }}"
+    state: link
+
+- name: "Ensure Flyway config file exists"
+  template:
+    src: "flyway.conf.j2"
+    dest: "{{ __flyway_config_file }}"
+    mode: "u=rw,og=r"

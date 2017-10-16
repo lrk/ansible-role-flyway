@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  remote_user: root
+  vars:
+    - flyway_url: jdbc:postgresql://lrk.ansible_role_flyway.db:5432/postgres
+    - flyway_user: postgres
+  roles:
+    - role_under_test
