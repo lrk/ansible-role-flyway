@@ -2,7 +2,5 @@
 - hosts: localhost
   remote_user: root
   become: true
-  vars:
-    - flyway_url: jdbc:postgresql://<host>:<port>/postgres
   roles:
     - ansible-flyway

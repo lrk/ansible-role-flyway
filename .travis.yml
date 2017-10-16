@@ -20,11 +20,9 @@ before_install:
   - docker inspect lrk.ansible_role_flyway.db
 
 script:
-  --link
   # Download test shim.
   - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/lrk/6c86b9924e86b4152e882a25d320572f/raw/
   - chmod +x ${PWD}/tests/test.sh
-
   # Run tests.
   - ${PWD}/tests/test.sh
 
