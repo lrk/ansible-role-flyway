@@ -1,0 +1,8 @@
+---
+# vars file for ansible-role-flyway
+__flyway_url: "https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/{{ flyway_version }}/flyway-commandline-{{ flyway_version }}.tar.gz"
+
+__flyway_core_jar: "{{ flyway_install_root }}/flyway-{{ flyway_version}}/lib/flyway-core-{{ flyway_version }}.jar"
+__flyway_script : "{{ flyway_install_root }}/flyway-{{ flyway_version}}/flyway"
+__flyway_symblink: "/usr/bin/flyway"
+__flyway_config_file: "{{ flyway_install_root }}/flyway-{{ flyway_version}}/conf/flyway.conf"
