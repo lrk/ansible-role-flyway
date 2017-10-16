@@ -21,7 +21,7 @@ before_install:
 
 script:
   # Download test shim.
-  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/lrk/6c86b9924e86b4152e882a25d320572f/raw/
+  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/lrk/6c86b9924e86b4152e882a25d320572f/raw/8b08620cbfa2f31da20436760e0e91d85557f488/ansible-role-test.sh
   - chmod +x ${PWD}/tests/test.sh
   # Run tests.
   - ${PWD}/tests/test.sh
