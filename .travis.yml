@@ -1,4 +1,6 @@
 ---
+sudo: required
+
 # Based on :
 # https://www.jeffgeerling.com/blog/testing-ansible-roles-travis-ci-github
 # https://www.jeffgeerling.com/blog/2016/how-i-test-ansible-configuration-on-7-different-oses-docker
@@ -12,9 +14,11 @@ env:
   # - distro: ubuntu1204
   # - distro: debian8
 
-script:
-  - docker run -d -p 127.0.0.1:5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+before_install:
+  - docker run -d --name lrk. -e POSTGRES_PASSWORD=postgres -d postgres
   - docker ps -a
+
+script:
   # Download test shim.
   - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
   - chmod +x ${PWD}/tests/test.sh
