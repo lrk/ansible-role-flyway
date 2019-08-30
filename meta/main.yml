@@ -1,6 +1,6 @@
 galaxy_info:
   author: lrk
-  description: "An Ansible Role that install Flyway."
+  description: "An Ansible Role that install Flyway Command-line Tool."
   license: "Apache License Version 2.0"
   min_ansible_version: 2.2
   platforms:

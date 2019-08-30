@@ -1,8 +1,26 @@
 ---
 # vars file for ansible-role-flyway
-__flyway_url: "https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/{{ flyway_version }}/flyway-commandline-{{ flyway_version }}.tar.gz"
+__flyway_install_version_path: "{{ flyway_install_root }}/flyway-{{ flyway_version}}"
 
-__flyway_core_jar: "{{ flyway_install_root }}/flyway-{{ flyway_version}}/lib/flyway-core-{{ flyway_version }}.jar"
-__flyway_script : "{{ flyway_install_root }}/flyway-{{ flyway_version}}/flyway"
+__flyway_core_jar: "{{ __flyway_install_version_path }}/lib/{{ flyway_edition }}/flyway-core-{{ flyway_version }}.jar"
+__flyway_core_jar_prior_5_2_0: "{{ __flyway_install_version_path }}/lib/flyway-core-{{ flyway_version }}.jar"
+
+__flyway_commandline_script : "{{ __flyway_install_version_path }}/flyway"
 __flyway_symblink: "/usr/bin/flyway"
-__flyway_config_file: "{{ flyway_install_root }}/flyway-{{ flyway_version}}/conf/flyway.conf"
+__flyway_config_folder: "{{ __flyway_install_version_path }}/conf"
+__flyway_config_file: "{{ __flyway_config_folder }}/flyway.conf"
+
+__flyway_default_drivers_folder: "{{ __flyway_install_version_path }}/drivers"
+__flyway_default_jars_folder: "{{ __flyway_install_version_path }}/jars"
+
+
+# default maven repository for downloading flyway artifact
+__flyway_group_id: "org.flywaydb"
+__flyway_artifact_id: "flyway-commandline"
+__flyway_artifact_extension: "tar.gz"
+
+__flyway_available_edition:
+  - None
+  - "community"
+  - "pro"
+  - "enterprise"

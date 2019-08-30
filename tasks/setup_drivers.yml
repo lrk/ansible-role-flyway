@@ -1,0 +1,31 @@
+- name: "Ensure default drivers are removed"
+  block:
+    - name: "List default drivers"
+      find:
+        paths: "{{ __flyway_default_drivers_folder }}"
+        patterns: "*.jar"
+        hidden: "yes"
+        file_type: "file"
+      register: __flyway_default_drivers_list
+
+    - name: "Remove default drivers"
+      file:
+        path: "{{ item.path }}"
+        state: "absent"
+      with_items: "{{ __flyway_default_drivers_list.files }}"
+  when: "flyway_remove_default_drivers"
+
+- name: "Ensure additional drivers are installed"
+  maven_artifact:
+    dest: "{{ __flyway_default_jars_folder }}/"
+    group_id: "{{ item.group_id | mandatory }}"
+    artifact_id: "{{ item.artifact_id | mandatory }}"
+    version: "{{ item.version | mandatory }}"
+    extension: "{{ item.extension | default(omit) }}"
+    classifier: "{{ item.classifier | default(omit) }}"
+    state: "{{ item.state | default(omit) }}"
+    repository_url: "{{ item.repo_url | default(omit) }}"
+    username: "{{ item.repo_user | default(omit) }}"
+    password: "{{ item.repo_password | default(omit) }}"
+    validate_certs: "{{ item.repo_validate_certs | default(omit) }}"
+  with_items: "{{ flyway_additional_mvn_drivers }}"
