@@ -11,6 +11,6 @@
     msg: "'flyway_edition' must be: 'community','pro','enterprise' or None."
 
 - name: "Ensure correct core jar path"
-  set_facts:
+  set_fact:
     __flyway_core_jar: "{{ __flyway_core_jar_prior_5_2_0 }}"
   when: "flyway_version | version_compare('5.2.0','<')"
