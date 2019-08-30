@@ -36,11 +36,11 @@ flyway_remove_default_drivers: false
 #       version: "1.0.0", # the driver version
 #       extension: "jar", # (optionnal) the maven artifact extension. Default: jar
 #       classifier: None, # (optionnal) the maven classifier. Default: None
-#       state: "present", # (optionnal) the artifact state. Default: present
+#       state: present, # (optionnal) the artifact state. Default: present
 #       repo_url: None, # (optionnal) repository where the driver should be downloaded from. Default: https://repo1.maven.org/maven2
 #       repo_user: None, # (optionnal) repository username. Default: flyway_repo_username
 #       repo_password: None, # (optionnal) repository password. Default: flyway_repo_password
-#       repo_validate_certs: "yes", # (optionnal) repository certificate validation. Default: yes
+#       repo_validate_certs: yes, # (optionnal) repository certificate validation. Default: yes
 #     }
 #   - ...
 flyway_additional_mvn_drivers: []

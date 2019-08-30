@@ -5,7 +5,7 @@ __flyway_install_version_path: "{{ flyway_install_root }}/flyway-{{ flyway_versi
 __flyway_core_jar: "{{ __flyway_install_version_path }}/lib/{{ flyway_edition }}/flyway-core-{{ flyway_version }}.jar"
 __flyway_core_jar_prior_5_2_0: "{{ __flyway_install_version_path }}/lib/flyway-core-{{ flyway_version }}.jar"
 
-__flyway_commandline_script : "{{ __flyway_install_version_path }}/flyway"
+__flyway_commandline_script: "{{ __flyway_install_version_path }}/flyway"
 __flyway_symblink: "/usr/bin/flyway"
 __flyway_config_folder: "{{ __flyway_install_version_path }}/conf"
 __flyway_config_file: "{{ __flyway_config_folder }}/flyway.conf"

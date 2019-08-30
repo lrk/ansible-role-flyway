@@ -18,7 +18,7 @@
         version: "{{ flyway_version }}"
         extension: "{{ __flyway_artifact_extension }}"
         repository_url: "{{ flyway_repo_url | default(omit) }}"
-        state: "present"
+        state: present
         username: "{{ flyway_repo_username | default(omit) }}"
         password: "{{ flyway_repo_username | default(omit) }}"
         dest: "{{ flyway_install_root }}/tmp_flyway.tar.gz"
@@ -34,7 +34,7 @@
         path: "{{ flyway_install_root }}/tmp_flyway.tar.gz"
         state: absent
 
-  when: __flyway_core_jar_stat.stat.exists == False
+  when: __flyway_core_jar_stat.stat.exists == false
 
 - name: "Ensure Flyway script is executable"
   file:
