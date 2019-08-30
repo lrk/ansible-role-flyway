@@ -14,3 +14,10 @@
   set_fact:
     __flyway_core_jar: "{{ __flyway_core_jar_prior_5_2_0 }}"
   when: "flyway_version | version_compare('5.2.0','<')"
+
+- name: "Ensure system required packages are installed"
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "python-lxml"
