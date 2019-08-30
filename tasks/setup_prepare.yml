@@ -2,7 +2,7 @@
 - name: "Disable Flyway edition prior to version 5.2.0"
   set_fact:
     flyway_edition: None
-  when: "flyway_version | version_compare('5.2.0','<')"
+  when: "flyway_version is version_compare('5.2.0','<')"
 
 - name: "Ensure valid Flyway edition value"
   assert:
@@ -13,7 +13,7 @@
 - name: "Ensure correct core jar path"
   set_fact:
     __flyway_core_jar: "{{ __flyway_core_jar_prior_5_2_0 }}"
-  when: "flyway_version | version_compare('5.2.0','<')"
+  when: "flyway_version is version_compare('5.2.0','<')"
 
 - name: "Ensure system required packages are installed"
   package:
