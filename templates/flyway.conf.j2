@@ -94,6 +94,7 @@ flyway.outOfOrder={{ flyway_out_of_order | default(False) | lower }}
 {% if (flyway_edition is defined) and (flyway_edition != None) and (flyway_edition != "community") %}
 
   flyway.outputQueryResults={{ flyway_output_query_results | default(true) }}*
+
 {% endif %}
 {%if ( flyway_callbacks is defined ) and ( flyway_callbacks ) %}
 
