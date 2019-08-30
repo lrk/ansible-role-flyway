@@ -1,4 +1,4 @@
-Ansible Role: Prometheus ([lrk.flyway](https://galaxy.ansible.com/lrk/flyway/))
+Ansible Role: Flyway Command-line Tool ([lrk.flyway](https://galaxy.ansible.com/lrk/flyway/))
 =========
 [![Build Status](https://travis-ci.org/lrk/ansible-role-flyway.svg?branch=master)](https://travis-ci.org/lrk/ansible-role-flyway)
 
