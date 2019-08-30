@@ -24,3 +24,5 @@ __flyway_available_edition:
   - "community"
   - "pro"
   - "enterprise"
+
+__flyway_maven_artifact_timeout: 60

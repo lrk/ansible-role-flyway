@@ -13,15 +13,15 @@ flyway_install_root: /opt/flyway
 
 # The repository from which flyway is downloaded (optional)
 # Default: https://repo1.maven.org/maven2
-flyway_repo_url: None
+flyway_repo_url: null
 
 # The repository username for authentication
 # Default: None
-flyway_repo_username: None
+flyway_repo_username: null
 
 # The repository password for authentication
 # Default: None
-flyway_repo_password: None
+flyway_repo_password: null
 
 # Should we delete default drivers ?
 flyway_remove_default_drivers: false

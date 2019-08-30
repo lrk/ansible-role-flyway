@@ -21,6 +21,7 @@
         state: present
         username: "{{ flyway_repo_username | default(omit) }}"
         password: "{{ flyway_repo_username | default(omit) }}"
+        timeout: "{{ __flyway_maven_artifact_timeout }}"
         dest: "{{ flyway_install_root }}/tmp_flyway.tar.gz"
 
     - name: "Extract Flyway archive"
