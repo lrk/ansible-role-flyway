@@ -9,17 +9,17 @@ flyway.schemas={% for schema in flyway_schemas %}schema{% if not loop.last %},{%
 
 {% if ( flyway_table is defined ) and ( flyway_table != None) %}flyway.table={{ flyway_table | default('schema_version') }}{% endif %}
 
-{% if ( flyway_locations is defined ) and ( flyway_schemas ) %}
+{% if ( flyway_locations is defined ) and ( flyway_locations ) %}
 flyway.locations={% for location in flyway_locations %}location{% if not loop.last %},{% endif %}{% endfor %}
 {% endif %}
 
-{% if ( flyway_resolvers is defined ) and ( flyway_schemas ) %}
+{% if ( flyway_resolvers is defined ) and ( flyway_resolvers ) %}
 flyway.resolvers={% for resolver in flyway_resolvers %}resolver{% if not loop.last %},{% endif %}{% endfor %}
 {% endif %}
 
 flyway.skipDefaultResolvers={{ flyway_skip_default_resolvers | default(False) | lower }}
 
-{% if ( flyway_jar_dirs is defined ) and ( flyway_schemas ) %}
+{% if ( flyway_jar_dirs is defined ) and ( flyway_jar_dirs ) %}
 flyway.jarDirs={% for dir in flyway_jar_dirs %}dir{% if not loop.last %},{% endif %}{% endfor %}
 {% endif %}
 
@@ -59,7 +59,7 @@ flyway.baselineOnMigrate={{ flyway_baseline_on_migrate | default(False) | lower 
 
 flyway.outOfOrder={{ flyway_out_of_order | default(False) | lower }}
 
-{%if ( flyway_callbacks is defined ) and ( flyway_schemas ) %}
+{%if ( flyway_callbacks is defined ) and ( flyway_callbacks ) %}
 flyway.callbacks={% for callback in flyway_callbacks %}callback{% if not loop.last %},{% endif %}{% endfor %}
 {% endif %}
 
