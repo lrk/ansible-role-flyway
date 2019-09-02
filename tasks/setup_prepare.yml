@@ -1,0 +1,24 @@
+---
+- block:
+    - name: "Disable Flyway edition prior to version 5.2.0"
+      set_fact:
+        flyway_edition: None
+      
+    - name: "Ensure correct core jar path"
+      set_fact:
+        __flyway_core_jar: "{{ __flyway_core_jar_prior_5_2_0 }}"
+      
+  when: "flyway_version is version_compare('5.2.0','<')"
+   
+- name: "Ensure valid Flyway edition value"
+  assert:
+    that:
+      - flyway_edition in __flyway_available_edition
+    msg: "'flyway_edition' must be: 'community','pro','enterprise' or None."
+
+- name: "Ensure system required packages are installed"
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "python-lxml"

@@ -1,0 +1,6 @@
+---
+- name: "Ensure Flyway config file exists"
+  template:
+    src: "flyway.conf.j2"
+    dest: "{{ __flyway_config_file }}"
+    mode: "u=rw,og=r"

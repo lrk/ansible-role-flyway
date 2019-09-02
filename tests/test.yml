@@ -4,5 +4,8 @@
   vars:
     - flyway_url: jdbc:postgresql://lrk.ansible_role_flyway.db:5432/postgres
     - flyway_user: postgres
+    - flyway_remove_default_drivers: true
+    - flyway_additional_mvn_drivers:
+        - { group_id: "org.postgresql", artifact_id: "postgresql", version: "42.2.6" }
   roles:
     - role_under_test
