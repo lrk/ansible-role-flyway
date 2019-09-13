@@ -1,4 +1,13 @@
 .DS_Store
-*.retry
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
 .vagrant
+test
+*.retry
+.venv
+__pycache__
 tests/roles

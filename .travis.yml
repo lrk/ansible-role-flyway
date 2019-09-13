@@ -1,30 +1,35 @@
 ---
-sudo: required
+language: python
 
-# Based on :
-# https://www.jeffgeerling.com/blog/testing-ansible-roles-travis-ci-github
-# https://www.jeffgeerling.com/blog/2016/how-i-test-ansible-configuration-on-7-different-oses-docker
-services: docker
+python:
+  - "3.6"      # current default Python on Travis CI
+
+cache: pip
+
+services:
+  - docker
 
 env:
-  - distro=centos7 docker_extra_args="--link lrk.ansible_role_flyway.db"
-  # - distro: centos6
-  # - distro: ubuntu1604
-  # - distro: ubuntu1404
-  # - distro: ubuntu1204
-  # - distro: debian8
+  - MOLECULE_DISTRO=centos7
+  - MOLECULE_DISTRO=ubuntu1804
+  - MOLECULE_DISTRO=ubuntu1604
+  - MOLECULE_DISTRO=debian8
+  - MOLECULE_DISTRO=debian9
+  - MOLECULE_DISTRO=debian10
 
-before_install:
-  - docker run -d --name lrk.ansible_role_flyway.db -e POSTGRES_PASSWORD=postgres -d postgres
-  - docker ps -a
-  - docker inspect lrk.ansible_role_flyway.db
+install:
+  - pip install --quiet molecule
+  - pip install --quiet 'molecule[docker]'
+
+before_script:
+  - molecule --version
+  - ansible --version
 
 script:
-  # Download test shim.
-  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/lrk/6c86b9924e86b4152e882a25d320572f/raw/8b08620cbfa2f31da20436760e0e91d85557f488/ansible-role-test.sh
-  - chmod +x ${PWD}/tests/test.sh
-  # Run tests.
-  - ${PWD}/tests/test.sh
+  - molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
+    # if: branch = master
+    # on_success: always
+    # on_failure: never

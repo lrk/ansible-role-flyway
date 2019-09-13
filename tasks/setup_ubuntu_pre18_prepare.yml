@@ -1,0 +1,5 @@
+---
+- name: "Ensure system required packages are installed"
+  pip:
+    name: [ "lxml" ]
+    state: present
