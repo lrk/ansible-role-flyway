@@ -16,7 +16,7 @@
       - flyway_edition in __flyway_available_edition
     msg: "'flyway_edition' must be: 'community','pro','enterprise' or None."
 
-- include_tasks: setup_rhe_prepare.yml
+- include_tasks: setup_rhel_prepare.yml
   when: (ansible_os_family == 'RedHat')
 
 - include_tasks: setup_debian_prepare.yml
