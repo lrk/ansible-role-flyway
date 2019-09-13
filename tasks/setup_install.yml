@@ -35,7 +35,7 @@
         path: "{{ flyway_install_root }}/tmp_flyway.tar.gz"
         state: absent
 
-  when: __flyway_core_jar_stat.stat.exists == false
+  when: __flyway_core_jar_stat.stat.exists
 
 - name: "Ensure Flyway script is executable"
   file:
