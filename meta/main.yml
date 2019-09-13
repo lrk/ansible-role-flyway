@@ -6,26 +6,25 @@ galaxy_info:
   min_ansible_version: 2.4
 
   platforms:
-    - name: RHEL
-      versions:
-        - 7
-    - name: Centos
+    - name: EL
       versions:
         - 7
     - name: Ubuntu
       versions:
-        - 18.04
-        - 16.04
+        - Bionic
+        - Xenial
     - name: Debian
       versions:
-        - 10
-        - 9
-        - 8
+        - Buster
+        - Stretch
+        - Jessie
 
   galaxy_tags:
     - 'database'
     - 'centos'
     - 'rhel'
+    - 'debian'
+    - 'ubuntu'
     - 'flyway'
     - 'flywaydb'
 
