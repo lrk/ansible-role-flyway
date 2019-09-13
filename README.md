@@ -6,7 +6,11 @@ An Ansible role that install [Flyway](https://flywaydb.org) Command-line Tool.
 
 Supported OSes
 --------------
-- Centos 7
+This role as been tested on the following OSes:
+
+- EL - 7
+- Ubuntu -  Bionic / Xenial
+- Debian - Buster / Stretch / Jessie
 
 Requirements
 ------------
