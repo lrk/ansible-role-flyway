@@ -1,7 +1,5 @@
 ---
 - name: "Ensure system required packages are installed"
   pip:
-    name: "{{ item }}"
+    name: [ "lxml" ]
     state: present
-  with_items:
-    - "python-lxml"
