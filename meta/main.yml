@@ -2,14 +2,30 @@ galaxy_info:
   author: lrk
   description: "An Ansible Role that install Flyway Command-line Tool."
   license: "Apache License Version 2.0"
-  min_ansible_version: 2.2
+
+  min_ansible_version: 2.4
+
   platforms:
-    - name: EL
+    - name: RHEL
       versions:
-      - 7
+        - 7
+    - name: Centos
+      versions:
+        - 7
+    - name: Ubuntu
+      versions:
+        - 18.04
+        - 16.04
+    - name: Debian
+      versions:
+        - 10
+        - 9
+        - 8
+
   galaxy_tags:
     - 'database'
     - 'centos'
+    - 'rhel'
     - 'flyway'
     - 'flywaydb'
 
