@@ -4,6 +4,7 @@ Ansible Role: Flyway Command-line Tool ([lrk.flyway](https://galaxy.ansible.com/
 [![Galaxy](https://img.shields.io/badge/galaxy-lrk.flyway-blue.svg)](https://galaxy.ansible.com/lrk/flyway)
 ![Ansible](https://img.shields.io/ansible/role/d/21291.svg)
 ![Ansible](https://img.shields.io/badge/dynamic/json.svg?label=min_ansible_version&url=https%3A%2F%2Fgalaxy.ansible.com%2Fapi%2Fv1%2Froles%2F21291%2F&query=$.min_ansible_version)
+![Ansible](https://img.shields.io/ansible/quality/21291)
 
 An Ansible role that install [Flyway](https://flywaydb.org) Command-line Tool.
 
