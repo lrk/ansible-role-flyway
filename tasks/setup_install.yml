@@ -17,7 +17,7 @@
         artifact_id: "{{ __flyway_artifact_id }}"
         version: "{{ flyway_version }}"
         extension: "{{ __flyway_artifact_extension }}"
-        repository_url: "{{ flyway_repo_url | default(omit) }}"
+        repository_url: "{{ flyway_repo_url | default(__flyway_default_maven_repository,True) }}"
         state: present
         username: "{{ flyway_repo_username | default(omit) }}"
         password: "{{ flyway_repo_password | default(omit) }}"
