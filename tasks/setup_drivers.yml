@@ -17,7 +17,7 @@
 
 - name: "Ensure additional drivers are installed"
   maven_artifact:
-    dest: "{{ __flyway_default_jars_folder }}/"
+    dest: "{{ __flyway_default_drivers_folder }}/"
     group_id: "{{ item.group_id | mandatory }}"
     artifact_id: "{{ item.artifact_id | mandatory }}"
     version: "{{ item.version | mandatory }}"
