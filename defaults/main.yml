@@ -41,6 +41,7 @@ flyway_remove_default_drivers: false
 #       repo_user: None, # (optionnal) repository username. Default: flyway_repo_username
 #       repo_password: None, # (optionnal) repository password. Default: flyway_repo_password
 #       repo_validate_certs: yes, # (optionnal) repository certificate validation. Default: yes
+#       mode: 0644 # (optionnal) file permissions. Default: 0644 
 #     }
 #   - ...
 flyway_additional_mvn_drivers: []
