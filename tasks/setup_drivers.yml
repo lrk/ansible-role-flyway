@@ -29,5 +29,5 @@
     password: "{{ item.repo_password | default(omit) }}"
     validate_certs: "{{ item.repo_validate_certs | default(omit) }}"
     timeout: "{{ __flyway_maven_artifact_timeout }}"
-    mode: "{{ item.mode | default("0644", True) }}"
+    mode: "{{ item.mode | default('0644', True) }}"
   with_items: "{{ flyway_additional_mvn_drivers }}"
