@@ -1,5 +1,7 @@
 ---
 # vars file for ansible-role-flyway
+__flyway_default_maven_repository: "https://repo1.maven.org/maven2"
+
 __flyway_install_version_path: "{{ flyway_install_root }}/flyway-{{ flyway_version}}"
 
 __flyway_core_jar: "{{ __flyway_install_version_path }}/lib/{{ flyway_edition }}/flyway-core-{{ flyway_version }}.jar"
